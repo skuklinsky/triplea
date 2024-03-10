@@ -80,7 +80,7 @@ public final class HeadedGameRunner {
             SwingUtilities.invokeLater(
                 () -> DownloadMapsWindow.showDownloadMapsWindowAndDownload(mapName));
           });
-      MacOsIntegration.setOpenFileHandler(MainFrame::loadSaveFile);
+      MacOsIntegration.setOpenFileHandler(MainFrame::loadSaveFileThenStartGame);
     }
 
     if (HttpProxy.isUsingSystemProxy()) {

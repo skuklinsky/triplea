@@ -54,6 +54,7 @@ public class MainPanel extends JPanel {
   private final JPanel chatPanelHolder = new JPanelBuilder().height(62).borderLayout().build();
   private SetupPanel gameSetupPanel;
   private final GameSelectorPanel gameSelectorPanel;
+  public final Consumer<MainPanel> launchAction;
 
   /**
    * MainPanel is the full contents of the 'mainFrame'. This panel represents the welcome screen and
@@ -66,6 +67,7 @@ public class MainPanel extends JPanel {
       @Nullable final ChatModel chatModel,
       final Runnable cancelAction) {
     this.gameSelectorPanel = gameSelectorPanel;
+    this.launchAction = launchAction;
     playButton.addActionListener(e -> launchAction.accept(this));
     cancelButton.addActionListener(e -> cancelAction.run());
 

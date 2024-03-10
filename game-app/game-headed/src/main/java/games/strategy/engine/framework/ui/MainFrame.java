@@ -85,6 +85,15 @@ public class MainFrame {
     loadSaveFileImpl(file, Instant.now());
   }
 
+  /**
+   * Used as a function handler for MacOS setOpenFileHandler.
+     This enables loading a saved game from the OS and immediately launching it.
+   */
+  public static void loadSaveFileThenStartGame(final Path file) {
+      loadSaveFile(file);
+      instance.mainPanel.launchAction.accept(instance.mainPanel);
+  }
+
   private static void loadSaveFileImpl(final Path file, final Instant startTime) {
     // This may be called at any time, including during start up.
     SwingUtilities.invokeLater(
